@@ -1,8 +1,14 @@
-// Returns a random subclass
+// Pulls a single random subclass from an array of 6
 function returnSubclass() {
     const subclass = ["Arc", "Void", "Solar", "Stasis", "Strand", "Prismatic"]
     return subclass[Math.floor(Math.random() * 6)]
 }
+
+// Returns a single subclass
+const returnChallengeSubclass = () => {
+    let challenge = returnSubclass()
+    return challenge;
+  }
 
 // Returns a random void or neutral exotic
 function returnVoidExotic() {
@@ -34,7 +40,7 @@ function returnStrandExotic() {
     return strandExotic[Math.floor(Math.random() * 4)]
 }
 
-// Returns a random exotic
+// Returns a random exotic for prismatic classes
 function returnPrismaticExotic() {
     const prismaticExotic = ["Dragon's Shadow", "Mask of Bakris", "Mothkeeper's Wraps", "Graviton Forfeit"]
     return prismaticExotic[Math.floor(Math.random() * 4)]
@@ -46,19 +52,19 @@ function returnExoticWeapon() {
     return exoticWeapon[Math.floor(Math.random() * 10)] 
 }
 
-
-const challengeLoadout = () => {
-    if(returnSubclass === "Arc"){
-        return "You will play " + returnSubclass + " and use " + returnArcExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon.";
-    } else if(returnSubclass === "Solar"){
-      return "You will play " + returnSubclass + " and use " + returnSolarExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
-    } else if(returnSubclass === "Void"){
-      return "You will play " + returnSubclass + " and use " + returnVoidExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
-    } else if(returnSubclass === "Stasis"){
-      return "You will play " + returnSubclass + " and use " + returnStasisExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
-    } if(returnSubclass === "Strand"){
-      return "You will play " + returnSubclass + " and use " + returnStrandExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
+// Returns a randomized loadout with matching exotics
+challengeLoadout = () => {
+    if(returnChallengeSubclass() == "Arc"){
+        return "You will play Arc and use " + returnArcExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon.";
+    } else if(returnChallengeSubclass() == "Solar"){
+      return "You will play Solar and use " + returnSolarExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
+    } else if(returnChallengeSubclass() == "Void"){
+      return "You will play Void and use " + returnVoidExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
+    } else if(returnChallengeSubclass() == "Stasis"){
+      return "You will play Stasis and use " + returnStasisExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
+    } else if(returnChallengeSubclass() == "Strand"){
+      return "You will play Strand and use " + returnStrandExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
     } else{
-      return "You will play " + returnSubclass + " and use " + returnPrismaticExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
+      return "You will play Prismatic and use " + returnPrismaticExotic() + " as your exotic armor piece and use " + returnExoticWeapon() + " as your exotic weapon."
     }
 }
